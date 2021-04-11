@@ -1,0 +1,17 @@
+
+.card-body
+{
+    text-align: center;
+}
+.container-cards
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.entire-card
+{
+    margin: 2% 2%;
+}

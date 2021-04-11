@@ -1,0 +1,94 @@
+#wrap {
+    float: left;
+    position: relative;
+    left: 50%;
+}
+#content {
+    float: left;
+    position: relative;
+    left: -50%;
+}
+.text-left-right {
+    text-align: right;
+    position: relative;
+}
+.left-text {
+    left: 0;
+    position: absolute;
+}
+.byline {
+    font-size: 16px;
+    color: rgba(140, 140, 140, 1);
+}
+.cols
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+.Col-right
+{
+    margin: 80%;
+    margin-right: right;
+    padding: right;
+}
+.input-boxes
+{
+    width: 70%;
+    text-align: center;
+}
+.entire-form
+{
+    padding: 3% 0 3% 8%;
+}
+.next-button-styling
+{
+    /* margin:  50% 0 1% 8.5%;
+    margin-top: 15%;
+    margin-left: 10%; */
+    padding: 15px 20px;
+    margin-left: 37%;
+    margin-top: 5%;
+    display: block;
+}
+.heading
+{
+    padding: 3% 0 1% 8.5%;
+}
+.headingmid
+{
+    padding-left: 10px;
+    padding: 3% 0 1% 8.5%;
+    
+}
+.sub-heading
+{
+    padding: 0% 0 1% 8.5%;
+}
+.gold-line
+{
+    background-color: #FFD700;
+    width: 35%;
+    margin-right: 56.5%;
+}
+/* for responsiveness */
+@media (max-width: 1028px)
+{
+    .heading
+    {
+        padding: 3% 0 1% 0;
+    }
+    .sub-heading
+    {
+        padding: 0% 0 1% 0;
+    }
+    .gold-line
+    {
+        width: 50%;
+        margin-right: 49.5%;
+    }
+    .next-button-styling
+    {
+        margin-top: 5%;
+        margin-left: 0;
+    }
+}

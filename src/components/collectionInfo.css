@@ -1,0 +1,23 @@
+#container
+{
+    padding-top: 1%;
+    width: 100%;
+    height: 500px;
+}
+.img
+{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+.collection-info-text
+{
+    text-align: center;
+    padding-top: 3%;
+}
+.info-text
+{
+    text-align: center;
+    padding: 0 23%;
+    line-height: 2rem;
+}
