@@ -1,0 +1,40 @@
+
+.article-info
+{
+    margin: auto 0;
+}
+.article-row
+{
+    margin: 5% 1%;
+}
+.line
+{
+    width: 100%;
+}
+.place-order
+{
+    padding: 5% 0;
+}
+.place-order-button
+{
+    margin: 5% 0%;
+}
+.order-title
+{
+    text-align: center;
+    padding-bottom: 2%;
+}
+.order-total
+{
+    font-weight: bold;
+}
+.shipping-details
+{
+    padding-top: 10%;
+}
+.shipping-title
+{
+    padding-top: 10%;
+    text-align: center;
+    padding-bottom: 2%;
+}

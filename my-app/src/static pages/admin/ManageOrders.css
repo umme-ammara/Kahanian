@@ -1,0 +1,27 @@
+.itemValues {
+    text-align: left;
+}
+
+thead, tbody, th, td {
+    border: 1px solid red;
+}
+
+.subFormGroup {
+    font-size: 80%;
+}
+
+
+.customButton {
+    height: 100px;
+    padding-top: 8px;
+    margin: 10px;
+    border-radius: 15px;
+    border-width: medium;
+    border-color: #c4c4c4;
+}
+
+.customButton:hover {
+    background-color: #e9e8e8;
+    border-color: #c4c4c4;
+    color: black;
+}

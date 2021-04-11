@@ -1,0 +1,21 @@
+.title-description
+{
+    text-align: center;
+    padding-bottom: 2%;
+}
+.entire-card
+{
+   margin: 5% auto;
+
+}
+.checkout-button
+{
+    margin: 15% auto 0 auto;
+    display: block;
+}
+.coupon-button
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4%;
+}

@@ -1,0 +1,27 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.customRow {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.customButton {
+    height: 100px;
+    padding-top: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    border-width: medium;
+    border-color: #c4c4c4;
+}
+
+.customButton:hover {
+    background-color: #e9e8e8;
+    border-color: #c4c4c4;
+    color: black;
+}
