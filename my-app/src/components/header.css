@@ -1,0 +1,27 @@
+  
+.icons
+{
+    color: grey;
+}
+.logo
+{
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+.hr-navBar
+{
+    background-color: #B79D5C;
+    width: 100%;
+
+}
+
+.nav-button
+{
+    color: black;
+    padding: 20px 50px;
+
+}

@@ -1,0 +1,19 @@
+/* .center {
+    margin-left: auto;
+    margin-right: auto;
+  } */
+
+  td {
+    text-align: center;
+}
+th {
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+}
+
+tbody{
+    align-items: center;
+}

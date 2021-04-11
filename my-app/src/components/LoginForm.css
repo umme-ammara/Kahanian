@@ -1,0 +1,92 @@
+/* .text-left-right {
+    text-align: right;
+    position: relative;
+}
+.left-text {
+    left: 0;
+    position: absolute;
+}
+.byline {
+    font-size: 16px;
+    color: rgba(140, 140, 140, 1);
+}
+.cols
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+ */
+ .input-boxes
+ {
+     text-align: center;
+ }
+.entire-form
+{
+    padding: 3% 3% 3% 10%;
+}
+.next-button-styling
+{
+    margin:  3% 0 1% 0%;
+    /* padding: 16px 32px; */
+}
+.heading
+{
+    padding: 3% 0 1% 0%;
+}
+.heading-login
+{
+    padding: 3% 0 1% 0%;
+}
+.sub-heading
+{
+    padding: 0% 0 1% 0;
+}
+.gold-line
+{
+    width: 70%;
+    margin-left: 0;
+}
+.login-heading
+{
+    padding-left: 21%;
+}
+.signup-option
+{
+    margin: 3% 10% 3% 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.signup-text
+{
+    padding-right: 20%;
+}
+/* for responsiveness */
+@media (max-width: 1028px)
+{
+    .heading
+    {
+        padding: 3% 0 1% 0;
+    }
+    .sub-heading
+    {
+        padding: 0% 0 1% 0;
+    }
+    .gold-line
+    {
+        width: 50%;
+        margin-right: 49.5%;
+    }
+    .next-button-styling
+    {
+        margin:  3% 0 1% 0%;
+        margin-top: 5%;
+    }
+    .signup-option
+    {
+        margin: 3% 10% 3% 10%;
+    }
+    .login-heading
+        {
+            padding-left: 0%;
+        }
+}

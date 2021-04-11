@@ -1,0 +1,24 @@
+.kahanian-text
+{
+    text-align: center;
+}
+.collage-container
+{
+    padding: 5% 0;
+}
+/* adding some padding between the first row and second row of pictures */
+
+.second-row-pictures
+{
+    padding-top: 5%;
+}
+.logo-kahanian
+{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+.kahanian-desc
+{
+    padding: 0 20% 10% 20%;
+}
