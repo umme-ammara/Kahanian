@@ -6,6 +6,7 @@ import "./nav-bar.css"
 import logo from "./KahanianGold.png"
 import { link, useHistory } from "react-router-dom"
 import { useAuth } from '../../contexts/AuthContext'
+import {VscFeedback} from "react-icons/vsc"
 // import { useState } from 'react';
 
 function Navigationbar()
@@ -97,6 +98,10 @@ return(
             {/* shopping cart icon */}
             <Nav.Item>
             <Nav.Link  className = "icons" eventKey="link-2"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
+            </Nav.Item>
+            {/*Review Star Icon*/}
+            <Nav.Item>
+             <Nav.Link  className = "icons" href = "/reviews"><i class="fas fa-star fa-2x"></i></Nav.Link> 
             </Nav.Item>
         </Nav>
 
