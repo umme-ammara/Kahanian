@@ -4,9 +4,10 @@ import Signup from "./Signup";
 import Homepage from "./homepage";
 import Denj from "./denj";
 import Product from "./Product";
-import Getexchange from "./Getexchange"
-import Getfaqs from "./Getfaqs"
-import Getabout from "./Getabout"
+import Getexchange from "./Getexchange";
+import Getfaqs from "./Getfaqs";
+import Reviews from "./Reviewpage"; 
+import Getabout from "./Getabout";
 import Adminpage from "./adminpage"; //Admin Main Page
 import Queries from "./Viewqueries"; //View Queries -> Retrieved from Database
 import Subs from "./Viewsubs"; //View Subscribers -> Retrieved from Database 
@@ -43,6 +44,7 @@ function App() {
                 <Route path = "/updatefaqs" component = {Updatefaqs}/>
                 <Route path = "/updateexchange" component = {Updateexchange}/>
                 <Route path = "/managecollections" component = {Managecollection}/>
+                <Route path = "/reviews" component = {Reviews}/>
               </Switch>
             </AuthProvider>
           </Router>
