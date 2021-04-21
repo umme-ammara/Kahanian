@@ -29,9 +29,15 @@ function Reviews() {
     //On Submit Handler 
     const handleSubmit = e => {
         e.preventDefault()
+        //Calculate Timestamp
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
         //Save the written review in this Field object 
         const Field = {
-            reviews: revRef.current.value
+            reviews: revRef.current.value,
+            timestamp: dateTime
         };
         console.log(Field); 
         //Save the review in the Database 
@@ -91,7 +97,7 @@ function Reviews() {
             Object.keys(feedback).map(id => {
             return (
             <Card style={{ width: '18rem' }}>
-            <Card.Header as="h5"></Card.Header>
+            <Card.Header as="h5">{feedback[id].timestamp}</Card.Header>
             <Card.Body>
                 <Card.Text>
                  {feedback[id].reviews} 
@@ -112,32 +118,3 @@ function Reviews() {
 
 export default Reviews;
 
-
- {/* <form id="feedback">
-        <div className="row">
-        <div className="form-group">
-            <div className="col-md-4 inputGroupContainer">
-            <div className="input-group">
-            <span className="input-group-addon"><i className="fa fa-pencil"></i></span>
-            <textarea className="form-control" id="review" rows="3"></textarea>
-            </div>
-            </div>
-        </div>
-        
-        <div className="rate">
-            <input type="radio" id="star5" name="rate" value="5" />
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4" />
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3" />
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2" />
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1" />
-            <label for="star1" title="text">1 star</label>
-        </div>
-        
-    </div>
-    
-    <input class="submitbutton ripplelink" type="submit" />
-    </form> */}
