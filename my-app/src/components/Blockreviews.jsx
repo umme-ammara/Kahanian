@@ -8,7 +8,6 @@ import {app} from "../firebase"
 var firebase = require('firebase/app');
 require('firebase/database');
 
-
 function Blockreview() {
     let firebaseDb = app.database(); 
     var [feedback, setReviewObjects] = useState({}) 
@@ -54,6 +53,7 @@ function Blockreview() {
             <table align = "center" className = "table table-borderless table-stripped">
                 <thead className = "thead-light">
                     <tr>
+                        <th>Timestamp</th>   
                         <th>Customer Reviews</th>
                         <th>Delete Reviews</th>
                     </tr>
@@ -62,6 +62,7 @@ function Blockreview() {
                     {
                         Object.keys(feedback).map(key => {
                             return <tr key={key}>
+                                <td>{feedback[key].timestamp}</td>
                                 <td>{feedback[key].reviews}</td>
                                 <td>
                                     <a className = "btn text-danger" onClick={() => { onDelete(key) }}>
