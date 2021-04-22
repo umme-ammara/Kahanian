@@ -18,6 +18,7 @@ import Updatefaqs from "./Updatefaqs"; //Update the FAQS -> Add/Edit/Delete
 import Managecollection from "./Managecollection";  // Manage Collection Page  
 import Updateexchange from "./Updateexchange"; 
 import User from "./UserProfile";
+import Orders from "./orders";
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
@@ -50,6 +51,7 @@ function App() {
                 <Route path = "/userprofile" component = {User} />
                 <Route path = "/reviews" component = {Reviews}/>
                 <Route path = "/managereviews" component = {Blockreview}/>
+                <Route path = "/manageorders" component = {Orders}/>
               </Switch>
             </AuthProvider>
           </Router>
