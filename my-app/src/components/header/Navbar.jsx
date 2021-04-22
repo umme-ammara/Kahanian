@@ -6,6 +6,7 @@ import "./nav-bar.css"
 import logo from "./KahanianGold.png"
 import { link, useHistory } from "react-router-dom"
 import { useAuth } from '../../contexts/AuthContext'
+import {VscFeedback} from "react-icons/vsc"
 // import { useState } from 'react';
 
 
@@ -193,6 +194,10 @@ function Navigationbar()
           <NavDropdown.Divider />
           <NavDropdown.Item eventKey="4.4">SATRANGI</NavDropdown.Item>
         </NavDropdown>  
+            {/*Review Star Icon*/}
+            <Nav.Item>
+             <Nav.Link  className = "icons" href = "/reviews"><i class="fas fa-star fa-2x"></i></Nav.Link> 
+            </Nav.Item>
         </Nav>
       </div>
     );
