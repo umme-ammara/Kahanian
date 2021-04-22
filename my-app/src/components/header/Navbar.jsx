@@ -164,6 +164,10 @@ function Navigationbar()
               <Nav.Item>
               <Nav.Link  className = "icons" eventKey="link-2"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
               </Nav.Item>
+               {/*Review Star Icon*/}
+            <Nav.Item>
+             <Nav.Link  className = "icons" href = "/reviews"><i class="fas fa-star fa-2x"></i></Nav.Link> 
+            </Nav.Item>
           </Nav>
   
           {/* horizaontal rule */}
@@ -194,10 +198,7 @@ function Navigationbar()
           <NavDropdown.Divider />
           <NavDropdown.Item eventKey="4.4">SATRANGI</NavDropdown.Item>
         </NavDropdown>  
-            {/*Review Star Icon*/}
-            <Nav.Item>
-             <Nav.Link  className = "icons" href = "/reviews"><i class="fas fa-star fa-2x"></i></Nav.Link> 
-            </Nav.Item>
+           
         </Nav>
       </div>
     );
