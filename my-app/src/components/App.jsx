@@ -4,9 +4,11 @@ import Signup from "./Signup";
 import Homepage from "./homepage";
 import Denj from "./denj";
 import Product from "./Product";
-import Getexchange from "./Getexchange"
-import Getfaqs from "./Getfaqs"
-import Getabout from "./Getabout"
+import Getexchange from "./Getexchange";
+import Getfaqs from "./Getfaqs";
+import Reviews from "./Reviewpage"; 
+import Blockreview from "./Blockreviews";
+import Getabout from "./Getabout";
 import Adminpage from "./adminpage"; //Admin Main Page
 import Queries from "./Viewqueries"; //View Queries -> Retrieved from Database
 import Subs from "./Viewsubs"; //View Subscribers -> Retrieved from Database 
@@ -15,6 +17,7 @@ import Updateabout from "./updateabout";
 import Updatefaqs from "./Updatefaqs"; //Update the FAQS -> Add/Edit/Delete
 import Managecollection from "./Managecollection";  // Manage Collection Page  
 import Updateexchange from "./Updateexchange"; 
+
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { AuthProvider } from "../contexts/AuthContext";
@@ -43,6 +46,8 @@ function App() {
                 <Route path = "/updatefaqs" component = {Updatefaqs}/>
                 <Route path = "/updateexchange" component = {Updateexchange}/>
                 <Route path = "/managecollections" component = {Managecollection}/>
+                <Route path = "/reviews" component = {Reviews}/>
+                <Route path = "/managereviews" component = {Blockreview}/>
               </Switch>
             </AuthProvider>
           </Router>
