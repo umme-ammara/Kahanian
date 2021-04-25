@@ -1,20 +1,25 @@
 import React, {useState, useEffect, useRef} from "react";
 import Navigationbar from './header/Navbar.jsx'; 
 import Clientfooter from "./Clientfooter.jsx";
-import {Card, CardGroup, Container, Alert} from 'react-bootstrap';
+import {Card, Form, Container, Alert} from 'react-bootstrap';
 import './Reviewpage.css';
-import {app} from "../firebase"
+import {app} from "../firebase"; 
+import Rating from 'material-ui-rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 var firebase = require('firebase/app');
 require('firebase/database'); 
 
-//Reference used to make the star rating: https://codepen.io/jamesbarnett/pen/vlpkh
+//Reference used to make the star rating: https://material-ui.com/components/rating/ 
 
 function Reviews() {
     let firebaseDb = app.database(); 
     const revRef = useRef(); 
-    const rateRef = useRef(); //Have not figured this out yet 
+    //const rateRef = useRef(); //Have not figured this out yet 
     var [feedback, setReviewObjects] = useState({}) 
     var [errorMsg, setErrorMsg] = React.useState('');
+    const [values, setValues] = React.useState(2);
 
     //Get Reviews from the Database
     useEffect(() => {
@@ -26,9 +31,12 @@ function Reviews() {
          })
     }, [])
 
+   
+
     //On Submit Handler 
     const handleSubmit = e => {
         e.preventDefault()
+        //console.log(values);
         //Calculate Timestamp
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -37,6 +45,7 @@ function Reviews() {
         //Save the written review in this Field object 
         const Field = {
             reviews: revRef.current.value,
+            rating: values,
             timestamp: dateTime
         };
         console.log(Field); 
@@ -48,26 +57,30 @@ function Reviews() {
         //setTimeout(function() { window.location=window.location;},750);
     } 
 
+   
     return (
         
     <Container>
         <Navigationbar/> 
         
-        <form  id = "feedback" className = "align-items-center" onSubmit = {handleSubmit}>
-        {/* Star Rating -> Optional (Form will submit even if you don't want to rate) */}
-        <div className = "rate">
-            <input type="radio" id="star5" name="rate" value="5"/>
-            <label for="star5" title="text">5 stars</label>
-            <input type="radio" id="star4" name="rate" value="4"/>
-            <label for="star4" title="text">4 stars</label>
-            <input type="radio" id="star3" name="rate" value="3"/>
-            <label for="star3" title="text">3 stars</label>
-            <input type="radio" id="star2" name="rate" value="2"/>
-            <label for="star2" title="text">2 stars</label>
-            <input type="radio" id="star1" name="rate" value="1"/>
-            <label for="star1" title="text">1 star</label>
-        </div>
-        {/* Written Review -> This is required (Not allowed to submit an empty review) */}
+        <Form  id = "feedback" className = "align-items-center" onSubmit = {handleSubmit}>
+        <div>
+        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend"></Typography>
+        <Rating
+          name="simple-controlled"
+          value={values}
+          onChange={(newValue) => {
+            console.log(newValue);
+            setValues(newValue);
+          }}
+        />
+      </Box>
+      </div>
+        
+        
+                    
+        {/* Written Review ->*/}
         <div className="input-group">
             <input ref = {revRef} class="form-control" name = "reviews" id = "reviews" placeholder = "Review" required/> 
         </div>
@@ -81,7 +94,7 @@ function Reviews() {
         <div>
             {errorMsg && <Alert variant = "success">{errorMsg}</Alert>}
         </div>
-        </form>
+        </Form>
         {/* Display Reviews -> Fetched from DB and dispalyed in cards*/}
         <br></br>
         {/* <div class="col-md-12">
@@ -100,7 +113,12 @@ function Reviews() {
             <Card.Header as="h5">{feedback[id].timestamp}</Card.Header>
             <Card.Body>
                 <Card.Text>
-                 {feedback[id].reviews} 
+
+                <Box component="fieldset" mb={3} borderColor="transparent">
+                    <Typography component="legend"></Typography>
+                    <Rating name="read-only" value={feedback[id].rating} readOnly />
+                 </Box>
+                {feedback[id].reviews} 
                 </Card.Text>
             </Card.Body>
             </Card>
@@ -115,6 +133,8 @@ function Reviews() {
     </Container>    
     );
 }
+
+
 
 export default Reviews;
 
