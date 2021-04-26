@@ -26,11 +26,11 @@ function Cart()
     const tempArray = []
     productInfo.map(prod=>
       {
-        console.log("am i coming here")
+        //console.log("am i coming here")
         if (prod.outofStock === false)
         {
 
-          console.log("this=====",prod)
+          //console.log("this=====",prod)
             var tempcart = {
               collection    : prod.colId,
               product       : prod.prodId,
@@ -123,9 +123,11 @@ function Cart()
 
             // to check if stocks are empty
             var isEmpty = false
+            var priceofItem = val.price
             if (stockOfSize === 0)
             {
               isEmpty = true
+              priceofItem = 0
             } 
 
             // if the product is in stock but the customer has more than what is available in the stock
@@ -142,7 +144,7 @@ function Cart()
               prodId          : productId[index],
               id              : index,
               name            : val.name,
-              price           : val.price,
+              price           : priceofItem,
               sizeStock       : stockOfSize,
               image           : val.imageSource[0],
               sizesBought     : totalIndividualProduct,

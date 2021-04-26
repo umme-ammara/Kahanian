@@ -93,20 +93,27 @@ function Product(){
         else{
             let data = localStorage.getItem('shoppingCart')
             data = JSON.parse(data)
-            const exist = data.find(x=> x.product === productId);
+            const exist = data.find(x=>  x.product === productId);
             if (exist)
             {
-                console.log("this item exists",exist)
-                for (var i = 0; i < data.length; i++)
+                var len = data.length
+                var newItem = true
+                //console.log("this item exists",exist)
+                for (var i = 0; i < len; i++)
                 {
-                    if (data[i].product === exist.product && data[i].sizeItem === exist.sizeItem)
+                    console.log("whi is it coming========",i, data[i], data.length,size,productId)
+
+                    if (productId === data[i].product && size === data[i].sizeItem)
                     {
                         console.log("whi is it coming", data[i], exist)
                         data[i].numberOfItems = exist.numberOfItems+1
+                        newItem = false
                         break
                     }
-                    else
-                    {
+                    
+                }
+                if (newItem = true)
+                {
 
                         console.log("this is that data", data)
                         var tempcart = {
@@ -117,16 +124,14 @@ function Product(){
                         
                         }
                         data.push(tempcart)
-
-                    }
-            localStorage.setItem('shoppingCart',JSON.stringify(data))
+                    localStorage.setItem('shoppingCart',JSON.stringify(data))
                 }
                 console.log("this item exists",data)
             }
             else
             {
 
-                console.log("this is that data", data)
+                //console.log("this is that data", data)
                 var tempcart = {
                     collection    : collectionID,
                     product       : productId,
