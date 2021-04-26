@@ -67,7 +67,7 @@ function PlaceOrderInfo()
                 console.log("sizeArray",sizeArray)
 
                 // updating product
-                //DB.ref().child("Collection/" + item.colId + "/Product/" + item.prodId + "/size").update(sizeArray)
+                DB.ref().child("Collection/" + item.colId + "/Product/" + item.prodId + "/size").update(sizeArray)
 
             }
 
@@ -102,7 +102,7 @@ function PlaceOrderInfo()
             timestamp       : "",
             address         : address.add
         }
-        //DB.ref().child("Orders").set(orderField)
+        DB.ref().child("Orders").set(orderField)
         // localStorage.setItem('shoppingCart',[])
         // localStorage.setItem('finalCart',[])
         // localStorage.setItem('subTotal',0)
