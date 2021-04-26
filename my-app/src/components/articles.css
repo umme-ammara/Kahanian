@@ -13,5 +13,10 @@
 }
 .entire-card
 {
-    margin: 2% 2%;
+    margin: 3% 5%;
+}
+.no-collection-text
+{
+    text-align: center;
+    padding: 10% 0;
 }

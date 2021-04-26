@@ -18,6 +18,10 @@ import Updatefaqs from "./Updatefaqs"; //Update the FAQS -> Add/Edit/Delete
 import Managecollection from "./Managecollection";  // Manage Collection Page  
 import Updateexchange from "./Updateexchange"; 
 import User from "./UserProfile";
+import Cart from "./../cartPage.js";
+import Dashboard from "./Dashboard";
+import Checkout from "./../checkout"
+import PlaceOrder from "./../PlaceOrder"
 import Orders from "./orders";
 import AddCollection from "./addCollection"
 import AddProduct from "./addProduct"
@@ -57,6 +61,11 @@ function App() {
                 <Route path = "/userprofile" component = {User} />
                 <Route path = "/reviews" component = {Reviews}/>
                 <Route path = "/managereviews" component = {Blockreview}/>
+                <Route path = "/cart" component = {Cart} />
+                <Route path = "/dashboard" component = {Dashboard} />
+                <Route path = "/checkout" component = {Checkout} />
+                <Route path = "/placeOrder" component = {PlaceOrder} />
+                
                 <Route path = "/manageorders" component = {Orders}/>
                 <Route path = "/addCollection" component = {AddCollection}/>
                 <Route path = "/addProduct" component = {AddProduct}/>

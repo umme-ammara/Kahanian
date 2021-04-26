@@ -1,0 +1,61 @@
+.header-colour
+{
+    background-color: black;
+}
+.header-text-item
+{
+    color: white;
+}
+.header-text
+{
+    color: white;
+}
+.image-height
+{
+    height: 100px;
+}
+.cart-image
+{
+    height: 300px;
+}
+.article-name
+{
+    padding-top: 15%;
+}
+.col
+{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.counter
+{
+    padding: 0 7.5%;
+}
+.col-description
+{
+    padding: auto;
+}
+.shopping-cart
+{
+    margin: 4% auto;
+}
+@media (max-width: 1028px)
+{
+    .col-description
+    {
+        font-size: 15px;
+    }
+    .counter
+    {
+        font-size: 15px;
+    }
+    .article-name
+    {
+        font-size: 15px;
+    }
+    .article-size
+    {
+        font-size: 12px;
+    }
+    
+}

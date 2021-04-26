@@ -20,11 +20,62 @@ require('firebase/database');
 function Navigationbar()
 {
   const [collections, setCollections] = useState([])
+  const [collectionsID, setCollectionsID] = useState([])
   const [error, setError] = useState("")
   const [load, setLoad] = useState(true)
   const { currentUser, logout } = useAuth()
   const history = useHistory();
   let DB = app.database();
+
+    if (localStorage.getItem('cartEmpty') === "T")
+    {
+        localStorage.removeItem('shoppingCart')
+        localStorage.removeItem('finalCart')
+        localStorage.removeItem('subTotal')
+        localStorage.setItem('discount',0)
+        localStorage.removeItem('voucherCode')
+        localStorage.removeItem('cartEmpty')
+    }
+    function sendIdentification(index)
+    {
+        localStorage.setItem('collectionID', collectionsID[index].toString())
+    }
+    // this is to just print out the collection names in the navbar, since the collection name remains the same in try and catch, it just made
+    // sense to make another func
+    function printCollectionName()
+    {
+      return(
+      <Nav className="justify-content-center" activeKey="/home">
+        {/* this map is only printing out the latest four collections */}
+          {
+            collections.map((collectionName,index) => {
+              if(index < 4)
+              {
+                  return(
+                  <Nav.Item>
+                  <Nav.Link onClick = {()=>{sendIdentification(index)}} className = "nav-button" href="/denj" >{collectionName}</Nav.Link>
+                  </Nav.Item>
+                )
+              }
+            })
+          }
+    
+            <NavDropdown title="OUR COLLECTIONS" id="nav-dropdown">
+            {
+              collections.map((collectionName,index) => {
+                return(
+                  <div>
+                  <NavDropdown.Item onClick = {()=>{sendIdentification(index)}} href="/denj">{collectionName}</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  </div>
+                )
+              })
+            }
+          </NavDropdown>  
+      </Nav>
+      )
+
+    }
     
     const CustomToggle = forwardRef(({ children, onClick }, ref) => (
         <a
@@ -58,13 +109,19 @@ function Navigationbar()
         if(load === true){
           DB.ref("Collection").on("value",snapshot => {
             let obj = snapshot.val()
+            const tempArray = []
+            const tempIDArray = []
             // console.log(obj)
             Object.keys(obj).map(id => {
+              tempArray.push(obj[id].name)
+              tempIDArray.push(id)
               // console.log(obj[id].name)
-              setCollections([...collections,obj[id].name])
-              console.log(collections)
+              // setCollections([...collections,obj[id].name])
+              // console.log(collections)
               //console.log(collections)
             })
+            setCollections(tempArray.reverse())
+            setCollectionsID(tempIDArray.reverse())
         })
         setLoad(false)
       }
@@ -76,7 +133,9 @@ function Navigationbar()
     if(currentUser.email){
       return( 
         <div >
+            <a href = "/">
             <img className = "logo" src={logo} alt = "logo"/>
+            </a>
     
             {/* this prints out the icon/ current the links lead to nowhere */}
             <Nav className="justify-content-end" activeKey="/home">
@@ -99,7 +158,11 @@ function Navigationbar()
                 </Dropdown>
                 {/* shopping cart icon */}
                 <Nav.Item>
-                <Nav.Link  className = "icons" eventKey="link-2"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
+                <Nav.Link  className = "icons" href="/cart"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
+                </Nav.Item>
+                  {/*Review Star Icon*/}
+                <Nav.Item>
+                <Nav.Link  className = "icons" href = "/reviews"><i class="fas fa-star fa-2x"></i></Nav.Link> 
                 </Nav.Item>
             </Nav>
     
@@ -107,31 +170,8 @@ function Navigationbar()
     
             <hr className="hr-navBar"/>
     
-        {/* this contains the collection names and the dropdown menu, for now i have hard coded these */}
-        <Nav className="justify-content-center" activeKey="/home">
-            <Nav.Item >
-            <Nav.Link  className = "nav-button" href="/denj">DENJ</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link  className = "nav-button" eventKey="link-1">MAHTAAB</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link className = "nav-button" eventKey="link-2">CORSAGE</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-            <Nav.Link className = "nav-button" eventKey="link-2">SATRANGI</Nav.Link>
-            </Nav.Item>
-    
-            <NavDropdown title="OUR COLLECTIONS" id="nav-dropdown">
-            <NavDropdown.Item eventKey="4.1">DENJ</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item eventKey="4.2">MAHTAAB</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item eventKey="4.3">CORSAGE</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item eventKey="4.4">SATRANGI</NavDropdown.Item>
-          </NavDropdown>  
-          </Nav>
+        {/* this functions prints out the collection names in the navbar*/}
+        {printCollectionName()}
         </div>
       );
       }
@@ -139,7 +179,9 @@ function Navigationbar()
   catch{
     return( 
       <div >
+          <a href = "/">
           <img className = "logo" src={logo} alt = "logo"/>
+          </a>
   
           {/* this prints out the icon/ current the links lead to nowhere */}
           <Nav className="justify-content-end" activeKey="/home">
@@ -162,7 +204,7 @@ function Navigationbar()
               </Dropdown>
               {/* shopping cart icon */}
               <Nav.Item>
-              <Nav.Link  className = "icons" eventKey="link-2"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
+              <Nav.Link  className = "icons" href="/cart"><i class="fas fa-shopping-bag fa-2x"></i></Nav.Link>
               </Nav.Item>
                {/*Review Star Icon*/}
             <Nav.Item>
@@ -174,32 +216,8 @@ function Navigationbar()
   
           <hr className="hr-navBar"/>
   
-      {/* this contains the collection names and the dropdown menu, for now i have hard coded these */}
-      <Nav className="justify-content-center" activeKey="/home">
-          <Nav.Item >
-          <Nav.Link  className = "nav-button" href="/denj">DENJ</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-          <Nav.Link  className = "nav-button" eventKey="link-1">MAHTAAB</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-          <Nav.Link className = "nav-button" eventKey="link-2">CORSAGE</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-          <Nav.Link className = "nav-button" eventKey="link-2">SATRANGI</Nav.Link>
-          </Nav.Item>
-  
-          <NavDropdown title="OUR COLLECTIONS" id="nav-dropdown">
-          <NavDropdown.Item eventKey="4.1">DENJ</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item eventKey="4.2">MAHTAAB</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item eventKey="4.3">CORSAGE</NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item eventKey="4.4">SATRANGI</NavDropdown.Item>
-        </NavDropdown>  
-           
-        </Nav>
+      {/* this functions prints out the collection names in the navbar*/}
+      {printCollectionName()}
       </div>
     );
   }
