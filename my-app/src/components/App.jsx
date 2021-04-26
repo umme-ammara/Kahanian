@@ -22,6 +22,13 @@ import Cart from "./../cartPage.js";
 import Dashboard from "./Dashboard";
 import Checkout from "./../checkout"
 import PlaceOrder from "./../PlaceOrder"
+import Orders from "./orders";
+import AddCollection from "./addCollection"
+import AddProduct from "./addProduct"
+import EditCollection from "./EditCollection"
+import EditProduct from "./EditProduct"
+import Voucher from "./vouchers";
+
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
@@ -59,6 +66,13 @@ function App() {
                 <Route path = "/checkout" component = {Checkout} />
                 <Route path = "/placeOrder" component = {PlaceOrder} />
                 
+                <Route path = "/manageorders" component = {Orders}/>
+                <Route path = "/addCollection" component = {AddCollection}/>
+                <Route path = "/addProduct" component = {AddProduct}/>
+                <Route path = "/EditCollection" component = {EditCollection}/>
+                <Route path = "/EditProduct" component = {EditProduct}/>
+                <Route path = "/vouchercodes" component = {Voucher}/>
+
               </Switch>
             </AuthProvider>
           </Router>

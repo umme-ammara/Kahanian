@@ -1,4 +1,5 @@
 import firebase from "firebase/app"
+import "firebase/storage"
 import "firebase/auth"
 
 // ahmeds
@@ -48,6 +49,6 @@ const app = firebase.initializeApp({
 //     measurementId: "G-ES2PVNM24G"
 // })
 
-
+const storage = firebase.storage();
 export const auth = app.auth();
-export {app};
+export {app, storage};
