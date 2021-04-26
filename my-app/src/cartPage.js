@@ -27,9 +27,6 @@ function Cart()
     productInfo.map(prod=>
       {
         //console.log("am i coming here")
-        if (prod.outofStock === false)
-        {
-
           //console.log("this=====",prod)
             var tempcart = {
               collection    : prod.colId,
@@ -38,8 +35,6 @@ function Cart()
               sizeItem      : prod.sizeItem
             }
             tempArray.push(tempcart)
-
-        }
 
       })
     //console.log("this is my temparray",tempArray)
