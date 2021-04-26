@@ -27,15 +27,15 @@ function Navigationbar()
   const history = useHistory();
   let DB = app.database();
 
-    if (localStorage.getItem('cartEmpty') === "T")
-    {
-        localStorage.removeItem('shoppingCart')
-        localStorage.removeItem('finalCart')
-        localStorage.removeItem('subTotal')
-        localStorage.setItem('discount',0)
-        localStorage.removeItem('voucherCode')
-        localStorage.removeItem('cartEmpty')
-    }
+    // if (localStorage.getItem('cartEmpty') === "T")
+    // {
+    //     localStorage.removeItem('shoppingCart')
+    //     localStorage.removeItem('finalCart')
+    //     localStorage.removeItem('subTotal')
+    //     localStorage.setItem('discount',0)
+    //     localStorage.removeItem('voucherCode')
+    //     localStorage.removeItem('cartEmpty')
+    // }
     function sendIdentification(index)
     {
         localStorage.setItem('collectionID', collectionsID[index].toString())

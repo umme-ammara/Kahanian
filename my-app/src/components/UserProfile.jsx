@@ -142,6 +142,7 @@ function User() {
                           placeholder="Company"
                           type="text"
                           ref = {firstNameRef}
+                          required 
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -153,6 +154,7 @@ function User() {
                           placeholder="Last Name"
                           type="text"
                           ref = {lastNameRef}
+                          required
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -167,6 +169,7 @@ function User() {
                           placeholder="Home Address"
                           type="text"
                           ref = {addressRef}
+                          required 
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -178,6 +181,7 @@ function User() {
                           placeholder="Number"
                           type="text"
                           ref = {phoneRef}
+                          required 
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -190,6 +194,7 @@ function User() {
                           defaultValue= {currentUser.email}
                           placeholder="Email"
                           type="text" readOnly
+                          required 
                         ></Form.Control>
                       </Form.Group>
                       </Col>
@@ -203,6 +208,7 @@ function User() {
                           placeholder="City"
                           type="text"
                           ref = {cityRef}
+                          required 
                         ></Form.Control>
                       </Form.Group>
                     </Col>

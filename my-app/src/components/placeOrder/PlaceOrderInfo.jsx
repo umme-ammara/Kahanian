@@ -91,6 +91,11 @@ function PlaceOrderInfo()
             })
 
         }
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+
         var orderField = {
             city            : address.place,
             deliverycharges : 200,
@@ -99,10 +104,15 @@ function PlaceOrderInfo()
             totalbill       : parseInt(localStorage.getItem('subTotal')) -parseInt(localStorage.getItem('discount')) + 200,
             userid          : address.fName + " " + address.lName,
             vouchercode     : vouch,
-            timestamp       : "",
+            timestamp       : dateTime,
             address         : address.add
         }
-        DB.ref().child("Orders").set(orderField)
+        DB.ref().child("Orders").push(orderField).then(() => {
+            //add local storage files here
+            localStorage.removeItem('shoppingCart')
+            localStorage.removeItem('discount')
+        })
+            
         // localStorage.setItem('shoppingCart',[])
         // localStorage.setItem('finalCart',[])
         // localStorage.setItem('subTotal',0)
