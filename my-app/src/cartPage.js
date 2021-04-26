@@ -106,14 +106,16 @@ function Cart()
             if (cartProducts[index].sizeItem === "S")
             {
                 stockOfSize = val.size[0]
-                //console.log("hi")
+                console.log("hi",cartProducts[index].sizeItem)
             }
             else if (cartProducts[index].sizeItem === "M")
             {
               stockOfSize = val.size[1]
+              console.log("yo",cartProducts[index].sizeItem)
             }
             else{
               stockOfSize = val.size[2]
+              console.log("yo1",cartProducts[index].sizeItem)
             }
 
             // to check if stocks are empty
@@ -145,7 +147,7 @@ function Cart()
               sizesBought     : totalIndividualProduct,
               sizeItem        : cartProducts[index].sizeItem,
               outofStock      : isEmpty,
-              hasMoreProducts : moreProducts
+              hasMoreProducts : moreProducts,
             }
             tempCount.push(totalIndividualProduct)
             tempArr.push(tempobj)
@@ -165,7 +167,7 @@ function Cart()
   return (
     <div>
   <Navigationbar/>
-  {console.log("this is product info",productInfo)}
+  {/* {console.log("this is product info",productInfo)} */}
   {productInfo.length !== 0 &&
   <CartInfo
     array = {productInfo}
@@ -178,11 +180,10 @@ function Cart()
     array = {productInfo}
     countArray = {countItems}
   /> */}
-  {JSON.parse(localStorage.getItem('shoppingCart')).length !== 0 &&
   <SummaryCart
     array = {productInfo}
     shipping = {150}
-  />}
+  />
   {productInfo.length === 0 && <h2 className = "display-empty-cart">The cart is currently empty</h2>}
   <Clientfooter/>
   </div>

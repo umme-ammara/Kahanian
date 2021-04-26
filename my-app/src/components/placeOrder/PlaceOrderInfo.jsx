@@ -148,7 +148,7 @@ function PlaceOrderInfo()
                         <hr className="line"/>
                         
                         {data.map(item=>{
-                            if (item.isEmpty !== true)
+                            if (item.sizesBought !== 0)
                             {
                                 return(
                                 <Row className = "article-row">
