@@ -19,7 +19,12 @@ import Managecollection from "./Managecollection";  // Manage Collection Page
 import Updateexchange from "./Updateexchange"; 
 import User from "./UserProfile";
 import Orders from "./orders";
+import AddCollection from "./addCollection"
+import AddProduct from "./addProduct"
+import EditCollection from "./EditCollection"
+import EditProduct from "./EditProduct"
 import Voucher from "./vouchers";
+
 
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
@@ -53,7 +58,12 @@ function App() {
                 <Route path = "/reviews" component = {Reviews}/>
                 <Route path = "/managereviews" component = {Blockreview}/>
                 <Route path = "/manageorders" component = {Orders}/>
+                <Route path = "/addCollection" component = {AddCollection}/>
+                <Route path = "/addProduct" component = {AddProduct}/>
+                <Route path = "/EditCollection" component = {EditCollection}/>
+                <Route path = "/EditProduct" component = {EditProduct}/>
                 <Route path = "/vouchercodes" component = {Voucher}/>
+
               </Switch>
             </AuthProvider>
           </Router>
