@@ -88,6 +88,11 @@ function SummaryCart(props)
     const itemsPrice = props.array.reduce((a,c) => a + c.price * c.sizesBought, 0)
     localStorage.setItem('subTotal',itemsPrice.toString())
     //localStorage.setItem('discount', 0)
+    if (localStorage.getItem('discount') === null)
+    {
+        localStorage.setItem('discount', 0)
+    }
+
     //localStorage.removeItem('voucherCode')
     return (
     <div>
