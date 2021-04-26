@@ -77,7 +77,7 @@ function User() {
       email: currentUser.email,
       phoneNumber: phoneRef.current.value,
       address: addressRef.current.value,
-      city: "",
+      city: cityRef.current.value,
       isGuest: false,
       isCustomer: true,
       isAdmin: false
@@ -112,10 +112,14 @@ function User() {
           <Col  md="4" >
           
           <Row>
-          <button type="button" class="btn-dark" > Account Info</button> 
+          <a href="/userprofile">
+          <button type="button" class="btn-dark" href = "/userprofile"> Account Info</button> 
+          </a>
           </Row>
           <Row>
-          <button type="button" class="btn btn-outline-dark" disabled > Dashboard &nbsp;&nbsp; </button>&nbsp;&nbsp;
+          <a href = "/dashboard">
+          <button type="button" class="btn btn-outline-dark" > Dashboard &nbsp;&nbsp; </button>&nbsp;&nbsp;
+          </a>
           </Row>
         
           </Col>
@@ -188,14 +192,17 @@ function User() {
                           type="text" readOnly
                         ></Form.Control>
                       </Form.Group>
-                    </Col>
-                    <Col className="px-1" md="6">
-                      <Form.Group controlId="formBasicPassword">
-                        <label className="right">Password</label>
+                      </Col>
+
+
+                      <Col md="6">
+                      <Form.Group>
+                        <label className="right">City</label>
                         <Form.Control
-                          defaultValue="donaldDuck_123swdefr"
-                          placeholder="Country"
-                          type="text" readOnly
+                          defaultValue={city}
+                          placeholder="City"
+                          type="text"
+                          ref = {cityRef}
                         ></Form.Control>
                       </Form.Group>
                     </Col>
