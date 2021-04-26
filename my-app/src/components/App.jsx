@@ -23,6 +23,9 @@ import AddCollection from "./addCollection"
 import AddProduct from "./addProduct"
 import EditCollection from "./EditCollection"
 import EditProduct from "./EditProduct"
+import Voucher from "./vouchers";
+
+
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { AuthProvider } from "../contexts/AuthContext";
@@ -59,6 +62,8 @@ function App() {
                 <Route path = "/addProduct" component = {AddProduct}/>
                 <Route path = "/EditCollection" component = {EditCollection}/>
                 <Route path = "/EditProduct" component = {EditProduct}/>
+                <Route path = "/vouchercodes" component = {Voucher}/>
+
               </Switch>
             </AuthProvider>
           </Router>

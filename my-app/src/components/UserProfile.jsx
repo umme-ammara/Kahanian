@@ -102,7 +102,11 @@ function User() {
   
   
   return (
+
     <div >
+
+    <div>
+
       <div>
 
       </div>
@@ -135,12 +139,18 @@ function User() {
                         <label for="validationDefault01" className="right">First Name</label>
                         <Form.Control
                           defaultValue= {firstName}
+
                           placeholder="Name"
                           type="text"
                           ref = {firstNameRef}
                           class="form-control" 
                           id="validationDefault01"
                           required
+
+                          placeholder="Company"
+                          type="text"
+                          ref = {firstNameRef}
+
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -152,7 +162,9 @@ function User() {
                           placeholder="Last Name"
                           type="text"
                           ref = {lastNameRef}
+
                           required
+
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -167,7 +179,9 @@ function User() {
                           placeholder="Home Address"
                           type="text"
                           ref = {addressRef}
+
                           required
+
                         ></Form.Control>
                       </Form.Group>
                     </Col>
@@ -179,7 +193,9 @@ function User() {
                           placeholder="Number"
                           type="text"
                           ref = {phoneRef}
+
                           required
+
                         ></Form.Control>
                       </Form.Group>
                     </Col>
