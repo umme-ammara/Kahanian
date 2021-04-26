@@ -17,8 +17,12 @@ import Updateabout from "./updateabout";
 import Updatefaqs from "./Updatefaqs"; //Update the FAQS -> Add/Edit/Delete
 import Managecollection from "./Managecollection";  // Manage Collection Page  
 import Updateexchange from "./Updateexchange"; 
+import User from "./UserProfile";
 import Orders from "./orders";
-import Voucher from "./vouchers";
+import AddCollection from "./addCollection"
+import AddProduct from "./addProduct"
+import EditCollection from "./EditCollection"
+import EditProduct from "./EditProduct"
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import { AuthProvider } from "../contexts/AuthContext";
@@ -47,10 +51,14 @@ function App() {
                 <Route path = "/updatefaqs" component = {Updatefaqs}/>
                 <Route path = "/updateexchange" component = {Updateexchange}/>
                 <Route path = "/managecollections" component = {Managecollection}/>
+                <Route path = "/userprofile" component = {User} />
                 <Route path = "/reviews" component = {Reviews}/>
                 <Route path = "/managereviews" component = {Blockreview}/>
                 <Route path = "/manageorders" component = {Orders}/>
-                <Route path = "/vouchercodes" component = {Voucher}/>
+                <Route path = "/addCollection" component = {AddCollection}/>
+                <Route path = "/addProduct" component = {AddProduct}/>
+                <Route path = "/EditCollection" component = {EditCollection}/>
+                <Route path = "/EditProduct" component = {EditProduct}/>
               </Switch>
             </AuthProvider>
           </Router>
