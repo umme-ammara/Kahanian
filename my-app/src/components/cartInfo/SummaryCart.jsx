@@ -91,6 +91,7 @@ function SummaryCart(props)
     //localStorage.removeItem('voucherCode')
     return (
     <div>
+    {itemsPrice !== 0 &&
     <Card className="entire-card" border="dark" style={{ width: '18rem' }}>
         <Card.Body>
             <Card.Title className="title-description">Order Summary</Card.Title>
@@ -114,7 +115,7 @@ function SummaryCart(props)
                     </a>
             </Card.Text>
         </Card.Body>
-    </Card>
+    </Card>}
     {/* this is the apply coupon button */}
         {discount !== 0 && <p className = "discount">Discount Applied</p>}
         <InputGroup className="mb-3" style={{ width: '23rem' }} className="coupon-button">
