@@ -3,19 +3,15 @@ import {Breadcrumb, Container} from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Header from "./Header";
 import Card from "react-bootstrap/Card";
-import empty from "./EMPTY.jpg";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Form } from "react-bootstrap";
 import Navigationbar from './header/Navbar.jsx'
 import Footer from "./Footer";
 import "./UserProfile.css";
-import "./cards.css"; 
 import {FaEdit} from 'react-icons/fa'; //EDIT ICON
 import {RiDeleteBin6Fill} from 'react-icons/ri'; //DELETE ICON 
 import {GrAddCircle} from 'react-icons/gr'; //ADD ICON 
-import {RiInboxArchiveLine} from 'react-icons/ri'; //Archive icon 
-
 
 //importing firebase
 import {app} from "../firebase"
@@ -41,13 +37,6 @@ function EditCollection() {
     //function for updating discount 
     //salePrice is basically discount percentage 
     // by using update
-
-    function sendProductID(productID)
-    {
-        //console.log("hello",productID)
-        localStorage.setItem('productID', productID)
-        //console.log(localStorage.getItem('productID'))
-    }
 
     useEffect(() => {
         if(onLoad === true){
@@ -94,7 +83,6 @@ function EditCollection() {
         setOnLoad(false)
 
     })
-    console.log(product)
 
     function setDiscountZero()
     {
@@ -105,11 +93,8 @@ function EditCollection() {
         //HERE SET the discount to zero in DB
         DB.ref().child("Collection/" + collectionID).update({
             salePercentage: 0
-        }) ;
+        })
         //UPDATED
-
-        // Sending an alert 
-        // <div class="alert alert-secondary" role="alert"> Discount has been removed!</div>
     }
 
     function handleSubmit() {
@@ -131,7 +116,6 @@ function EditCollection() {
         <Breadcrumb class="breadcrumb">
                 <Breadcrumb.Item  href="/">Homepage</Breadcrumb.Item>  {/*Insert Link to Homepage*/}
                 <Breadcrumb.Item  href="/adminpage">Adminpage</Breadcrumb.Item> {/*Insert Link to Adminpage*/}
-                <Breadcrumb.Item  href="/managecollections">Manage Collections</Breadcrumb.Item> {/*Insert Link to Adminpage*/}
                 <Breadcrumb.Item  active>Edit Collection</Breadcrumb.Item>
             </Breadcrumb>
         <div >
@@ -180,7 +164,7 @@ function EditCollection() {
                         ></Form.Control>
                         
                         <Button
-                        className="btn btn-dark "
+                        className="btn btn-outline-secondary "
                         type="submit"
                         onClick = {()=>{setDiscountZero()}}>
                         Remove Discount
@@ -199,7 +183,7 @@ function EditCollection() {
                 </Form>
             </Row>
             <Row className="middle"> 
-                <Col className="itemValues"> <h4>ITEMS IN COLLECTION</h4></Col>
+                <Col className="itemValues">ITEMS IN COLLECTION</Col>
                 <Col>
                 {
                 // REUSE CARDS.jsx HERE
@@ -207,10 +191,7 @@ function EditCollection() {
                 </Col>
             </Row>
         </Container>
-        
         </div>
-        <Container>
-        <Row  md = {4}>
         { product.map((prod) => {
             return (
 
@@ -219,46 +200,23 @@ function EditCollection() {
                 <Card.Body>
                 <Card.Title> {prod.name} </Card.Title>
                 <Card.Text>
-                <p>{prod.description}</p>
+                {prod.description}
                 {prod.price}
                 </Card.Text>
 
-                <Button bsPrefix="super-btn w-100" href="./EditProduct"  variant="primary" onClick = {()=>{sendProductID(prod.identification)}} >
-                EDIT <FaEdit class = "iconstyle" />
-
+                <Button bsPrefix="super-btn w-100" href="./EditCollection"  variant="primary" >
+                EDIT <FaEdit class = "iconstyle"/>
                 </Button> 
-
             
                 <Button bsPrefix="super-btn w-100"  variant="primary">
-                ARCHIVE <RiInboxArchiveLine class = "iconstyle"/>
+                DELETE <RiDeleteBin6Fill class = "iconstyle"/>
                 </Button> 
-                {console.log(prod)}
             
                 </Card.Body>
         </Card> )
           
        } )
        }
-       </Row>
-       <br></br>
-        <Row md = {4}>
-        <Card style={{ width: '18rem', flex: 1 }}>
-        <Card.Img variant="top" src = {empty} alt = {"emptycollection"} className = "imgeffects" />
-        <Card.Body>
-            <Card.Title>  </Card.Title>
-            <Card.Text>
-                
-            </Card.Text>
-            {/* <Button bsPrefix="super-btn w-100"   variant="primary">
-               ADD COLLECTION <GrAddCircle class = "iconstyle"/>
-            </Button>  */}
-            <a  class="btn btn-outline-secondary"  variant="primary" href="./addProduct" role="button" >  Add Product  <GrAddCircle class = "iconstyle"/>&nbsp;&nbsp; </a>&nbsp;&nbsp;
-        </Card.Body>
-        </Card> 
-
-       
-        </Row>
-        </Container>
 
         <Footer/>
 
